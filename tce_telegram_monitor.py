@@ -47,6 +47,7 @@ def send_telegram(text: str):
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
     payload = {"chat_id": CHAT_ID, "text": text, "parse_mode": "HTML"}
     try:
+        ptrint(payload)
         r = requests.post(url, data=payload, timeout=15)
         r.raise_for_status()
         logging.info("Сообщение отправлено в Telegram.")
@@ -129,3 +130,4 @@ if __name__ == "__main__":
 
     # Рекомендуемый режим: запускать через cron каждые 10 минут.
     main_once()
+
