@@ -24,11 +24,13 @@ from selenium.webdriver.chrome.options import Options
 load_dotenv()
 
 BOT_TOKEN = "7348919449:AAEDdogDWEp1N75iYVPWrniojpirRYAsnJg"
-CHAT_ID = "4824337407"
+CHAT_ID = "235204224"
 SEARCH_TEXT = os.getenv("SEARCH_TEXT", "Записки юного врача")
+SEARCH_TEXT_2 = os.getenv("SEARCH_TEXT_2", "На чёрной")
 URL = os.getenv("URL", "https://tce.by/search.html")
 # Опционально: порог, при превышении которого шлём уведомление
 THRESHOLD = int(os.getenv("THRESHOLD", "1"))
+THRESHOLD_2 = int(os.getenv("THRESHOLD_2", "2"))
 
 # Логи
 logging.basicConfig(
@@ -41,9 +43,7 @@ logging.basicConfig(
 )
 
 def send_telegram(text: str):
-    if not BOT_TOKEN or not CHAT_ID:
-        logging.error("BOT_TOKEN или CHAT_ID не заданы.")
-        return False
+
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
     payload = {"chat_id": CHAT_ID, "text": text, "parse_mode": "HTML"}
     try:
@@ -129,7 +129,3 @@ if __name__ == "__main__":
 
     # Рекомендуемый режим: запускать через cron каждые 10 минут.
     main_once()
-
-
-
-
