@@ -28,7 +28,7 @@ CHAT_ID = os.getenv("4824337407")
 SEARCH_TEXT = os.getenv("SEARCH_TEXT", "Записки юного врача")
 URL = os.getenv("URL", "https://tce.by/search.html")
 # Опционально: порог, при превышении которого шлём уведомление
-THRESHOLD = int(os.getenv("THRESHOLD", "3"))
+THRESHOLD = int(os.getenv("THRESHOLD", "1"))
 
 # Логи
 logging.basicConfig(
@@ -129,3 +129,4 @@ if __name__ == "__main__":
 
     # Рекомендуемый режим: запускать через cron каждые 10 минут.
     main_once()
+
