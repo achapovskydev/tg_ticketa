@@ -23,8 +23,8 @@ from selenium.webdriver.chrome.options import Options
 # Загрузка .env
 load_dotenv()
 
-BOT_TOKEN = os.getenv("7348919449:AAEDdogDWEp1N75iYVPWrniojpirRYAsnJg")
-CHAT_ID = os.getenv("4824337407")
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+CHAT_ID = os.getenv("CHAT_ID")
 SEARCH_TEXT = os.getenv("SEARCH_TEXT", "Записки юного врача")
 URL = os.getenv("URL", "https://tce.by/search.html")
 # Опционально: порог, при превышении которого шлём уведомление
@@ -129,4 +129,5 @@ if __name__ == "__main__":
 
     # Рекомендуемый режим: запускать через cron каждые 10 минут.
     main_once()
+
 
